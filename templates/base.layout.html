@@ -1,0 +1,22 @@
+{{define "base"}}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="/static/css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GTrack</title>
+</head>
+<header class="header">
+    <a class="header_logo" href="/">GTrack</a>
+
+</header>
+<body>
+    <div class="page">
+        {{template "main" .}}
+    </div>
+    
+</body>
+</html>
+{{end}}
