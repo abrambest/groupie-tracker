@@ -8,6 +8,7 @@ body{
     background: url(../img/wallpaperflare.com_wallpaper.jpg) center, no-repeat;
     background-size: cover;
     background-repeat: no-repeat;
+    background-attachment: fixed;
     height: 100vh;
 }
 
@@ -23,10 +24,43 @@ body{
 
 }
 
+.txt{
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto 0;
+    position: relative;
+}
+
 .container{
+
+    display: flex;
+    flex-wrap: wrap;
     width: 100%;
     max-width: 1200px;
     margin: 0 auto 0;
     position: relative;
     z-index: 1;
+}
+
+.label_block{
+    padding: 5px;
+    
+    
+}
+.label_image{
+    padding-bottom: 10px;
+}
+
+.label_name{
+    text-align: center;
+    padding-bottom: 20px;
+}
+
+/* artist */
+
+.artist_box{
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
+    margin-top: 30px;
 }

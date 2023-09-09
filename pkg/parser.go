@@ -41,7 +41,7 @@ func Parser() ([]StructArtist, error) {
 		return nil, err
 
 	}
-	fmt.Println(Artist)
+	// fmt.Println(Artist)
 
 	return Artist, err
 }

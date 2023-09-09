@@ -1,11 +1,29 @@
 {{template "base" .}}
 {{define "main"}}
-<div class="container">
+<div class="txt">
     <h1>Hello World!</h1>
+</div>
+<div class="container">
+    
     {{range .}}
-    {{.Name}}
-    <img src="{{.Image}}" alt="logo">
-    {{end}}
+    <div class="label_block">
+        <a href="/artist/{{.Id}}">
+            <div class="label_image">
+            
+            <img src="{{.Image}}" alt="logo">
+            
+
+        </div>
+        <div class="label_name">
+                {{.Name}}
+                
+            </div>
+        </a>
+        
+        
+    </div>
+{{end}}
+
 </div>
 
 {{end}}
