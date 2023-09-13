@@ -1,8 +1,6 @@
 {{template "base" .}}
 {{define "main"}}
-<div class="txt">
-    <h1>Hello World!</h1>
-</div>
+
 <div class="container">
     
     {{range .}}
@@ -14,10 +12,13 @@
             
 
         </div>
-        <div class="label_name">
+        <div class="label_box">
+            <div class="label_name">
                 {{.Name}}
                 
             </div>
+        </div>
+        
         </a>
         
         

@@ -1,7 +1,7 @@
 body{
     margin: 0;
     font-family: 'Montserrat', sans-serif;
-    font-size: 15px;
+    font-size: 18px;
     color: blue;
     line-height: 1.6;
     width: 100%;
@@ -16,12 +16,16 @@ body{
     width: 100%;
     max-width: 83%;
     margin: 0 auto;
-    margin-top: 1%;
+    margin-top: 2%;
+    text-align: center;
+    
 }
 
 .header_logo{
     font-size: 30px;
-
+    text-decoration: none;
+    font-weight: 700;
+    color: rgb(180, 180, 180);
 }
 
 .txt{
@@ -32,28 +36,43 @@ body{
 }
 
 .container{
-
+    padding-top: 3%;
     display: flex;
     flex-wrap: wrap;
     width: 100%;
     max-width: 1200px;
     margin: 0 auto 0;
     position: relative;
+    place-content: center;
     z-index: 1;
 }
 
 .label_block{
     padding: 5px;
+    position: relative;
+    width: 240px;
+    padding-bottom: 30px;
     
     
 }
 .label_image{
-    padding-bottom: 10px;
+    padding-bottom: 2px;
+}
+
+img {
+    width: 100%;
+    border-radius: 40px 10px;
+    object-fit: contain;
+}
+
+.label_box{
+    border-radius: 40px 10px;
+    background: white;
 }
 
 .label_name{
     text-align: center;
-    padding-bottom: 20px;
+    padding-bottom: 5px;
 }
 
 /* artist */
