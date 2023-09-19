@@ -1,6 +1,7 @@
 package main
 
 import (
+	"fmt"
 	"gtrack/pkg"
 	"html/template"
 	"log"
@@ -18,6 +19,7 @@ func errorPage(w http.ResponseWriter, error string, code int) {
 	htmlFiles := []string{
 		"./templates/error.html",
 		"./templetes/base.layout.html",
+		"./templates/footer.html",
 	}
 	tmpl, err := template.ParseFiles(htmlFiles...)
 	if err != nil {
@@ -44,6 +46,7 @@ func artistPage(w http.ResponseWriter, r *http.Request) {
 	htmlFiles := []string{
 		"./templates/artist.html",
 		"./templates/base.layout.html",
+		"./templates/footer.html",
 	}
 	if r.Method != http.MethodGet {
 		errorPage(w, http.StatusText(http.StatusMethodNotAllowed), http.StatusMethodNotAllowed)
@@ -55,6 +58,15 @@ func artistPage(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 	data, err := pkg.Parser()
+	fmt.Println(data)
+	if err != nil {
+		fmt.Println("error pars")
+	}
+	err = pkg.ParsRelation(id)
+	if err != nil {
+		fmt.Println("error pars dates and location")
+		return
+	}
 	err = tmpl.Execute(w, data[id-1])
 	if err != nil {
 		errorPage(w, "Internal Server Error", 500)
@@ -66,6 +78,7 @@ func home(w http.ResponseWriter, r *http.Request) {
 	htmlFiles := []string{
 		"./templates/home.html",
 		"./templates/base.layout.html",
+		"./templates/footer.html",
 	}
 	if r.Method != http.MethodGet {
 		errorPage(w, http.StatusText(http.StatusMethodNotAllowed), http.StatusMethodNotAllowed)

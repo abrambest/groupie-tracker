@@ -1,11 +1,13 @@
 {{template "base" .}}
+{{define "title"}}GTrack{{end}}
+
 {{define "main"}}
 
 <div class="container">
     
     {{range .}}
     <div class="label_block">
-        <a href="/artist/{{.Id}}">
+        <a class="link_art" href="/artist/{{.Id}}">
             <div class="label_image">
             
             <img src="{{.Image}}" alt="logo">
@@ -23,8 +25,9 @@
         
         
     </div>
-{{end}}
+    {{end}}
 
 </div>
 
 {{end}}
+

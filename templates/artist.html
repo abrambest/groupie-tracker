@@ -1,8 +1,58 @@
 {{template "base" .}}
-
+{{define "title"}}GTrack - {{.Name}}{{end}}
 {{define "main"}}
 
-<div class="artist_box">
-    <img src="{{.Image}}" alt="{{.Name}}">
+<div class="card">
+    <div class="first_line">
+        <img class="artist_img" src="{{.Image}}" alt="{{.Name}}">
+        <div class="info">
+           <strong>Started career in {{.CreationDate}}</strong>
+            <br>
+            <br>
+            <div class="info_list">
+                Members:
+                {{range .Members}}
+                <div>
+
+                    {{.}}
+                </div>
+                {{end}}
+            </div>
+            <div class="info_list">
+                <br>
+                <strong>First album date:</strong><br>{{.FirstAlbum}}
+            </div>
+
+
+
+
+        </div>
+        <div class="info">
+            <strong>Date and Location</strong>
+            <br>
+            <br>
+            {{range $key, $value := .DatesLocation}}
+            <div class="info_loc">
+                <div class="key">
+                    {{$key}}
+
+                </div>
+                {{range $value}}
+                <div class="value">
+                    
+                    {{.}}
+                    
+                    {{end}}
+                </div>
+            </div>
+            <br>
+            {{end}}
+            
+        </div>
+        
+    </div>
+
+
 </div>
+
 {{end}}

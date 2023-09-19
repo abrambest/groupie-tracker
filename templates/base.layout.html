@@ -5,19 +5,24 @@
     <meta charset="UTF-8">
     <link rel="stylesheet" href="/static/css/style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel='shortcut icon' href='/static/img/favicon.ico' type='image/x-icon'>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GTrack</title>
+    <title>{{template "title" .}}</title>
 </head>
 <header class="header">
     <a class="header_logo" href="/">GTrack</a>
 
 </header>
 <body>
-    <div class="page">
+    <div class="page_box">
+        <main class="page">
         {{template "main" .}}
-    </div>
+    </main>
+</div>
+{{template "footer" .}}
+    
     
 </body>
 </html>

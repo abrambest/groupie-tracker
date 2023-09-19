@@ -1,4 +1,4 @@
-body{
+body {
     margin: 0;
     font-family: 'Montserrat', sans-serif;
     font-size: 18px;
@@ -12,74 +12,121 @@ body{
     height: 100vh;
 }
 
-.header{
+.page_box{
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    min-height: 80%;
+}
+
+.header {
     width: 100%;
     max-width: 83%;
     margin: 0 auto;
     margin-top: 2%;
     text-align: center;
-    
+
 }
 
-.header_logo{
+.header_logo {
     font-size: 30px;
     text-decoration: none;
     font-weight: 700;
     color: rgb(180, 180, 180);
 }
 
-.txt{
+.txt {
     width: 100%;
     max-width: 1200px;
     margin: 0 auto 0;
     position: relative;
 }
 
-.container{
+.container {
     padding-top: 3%;
     display: flex;
     flex-wrap: wrap;
     width: 100%;
-    max-width: 1200px;
+    max-width: 80%;
     margin: 0 auto 0;
     position: relative;
     place-content: center;
     z-index: 1;
 }
 
-.label_block{
+.label_block {
     padding: 5px;
     position: relative;
-    width: 240px;
+    width: 180px;
     padding-bottom: 30px;
-    
-    
 }
-.label_image{
+.link_art{
+    text-decoration: none;
+    color: rgb(2, 0, 111);
+}
+
+.label_image {
     padding-bottom: 2px;
 }
 
 img {
     width: 100%;
-    border-radius: 40px 10px;
+    border-radius: 25px 5px;
     object-fit: contain;
 }
 
-.label_box{
-    border-radius: 40px 10px;
+.label_box {
+    border-radius: 11px 5px;
     background: white;
 }
 
-.label_name{
+.label_name {
     text-align: center;
     padding-bottom: 5px;
+    font-size: 15px;
 }
 
 /* artist */
 
-.artist_box{
-    width: 100%;
-    max-width: 600px;
+.card {
+    background-color: rgb(23 65 81 / 0.8);
+    padding: 20px;
+    margin: 20px auto;
+    position: relative;
+    width: 900px;
+    border-radius: 25px 5px;
+}
+
+.first_line{
+    display: flex;
+}
+
+.artist_img{
+    display: block;
+    width: 200px;
+    height: 200px;
+    border-radius: 40px 5px;
+}
+
+.info{
+    text-align: center;
+    color: white;
     margin: 0 auto;
-    margin-top: 30px;
+    width: 400px;
+}
+
+.info_list{
+    text-align: center;
+}
+.key{
+    text-transform: capitalize;
+}
+
+footer{
+    color: white;
+    text-align: center;
+    width: 100%;
+    font-size: 12px;
+    padding: 20px;
+    margin-top: auto;
 }
