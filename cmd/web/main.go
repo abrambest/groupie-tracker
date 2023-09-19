@@ -7,6 +7,7 @@ import (
 	"log"
 	"net/http"
 	"path"
+	"path/filepath"
 	"strconv"
 )
 
@@ -18,12 +19,12 @@ type Error struct {
 func errorPage(w http.ResponseWriter, error string, code int) {
 	htmlFiles := []string{
 		"./templates/error.html",
-		"./templetes/base.layout.html",
+		"./templates/base.layout.html",
 		"./templates/footer.html",
 	}
 	tmpl, err := template.ParseFiles(htmlFiles...)
 	if err != nil {
-		http.Error(w, "Internal Server Error5", 500)
+		http.Error(w, "Internal Server Error", 500)
 		return
 	}
 	w.WriteHeader(code)
@@ -58,7 +59,7 @@ func artistPage(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 	data, err := pkg.Parser()
-	fmt.Println(data)
+
 	if err != nil {
 		fmt.Println("error pars")
 	}
@@ -75,6 +76,10 @@ func artistPage(w http.ResponseWriter, r *http.Request) {
 }
 
 func home(w http.ResponseWriter, r *http.Request) {
+	if r.URL.Path != "/" {
+		errorPage(w, http.StatusText(http.StatusNotFound), http.StatusNotFound)
+		return
+	}
 	htmlFiles := []string{
 		"./templates/home.html",
 		"./templates/base.layout.html",
@@ -107,8 +112,32 @@ func main() {
 	mux := http.NewServeMux()
 	mux.HandleFunc("/", home)
 	mux.HandleFunc("/artist/", artistPage)
-	mux.Handle("/static/", http.StripPrefix("/static", http.FileServer(http.Dir("./static"))))
+	fileServer := http.FileServer(neuteredFileSystem{http.Dir("./static/")})
+	mux.Handle("/static/", http.StripPrefix("/static", fileServer))
 	log.Println("Server start: http://localhost:8080")
 	err := http.ListenAndServe("localhost:8080", mux)
 	log.Fatal(err)
+}
+
+type neuteredFileSystem struct {
+	fs http.FileSystem
+}
+
+func (nfs neuteredFileSystem) Open(path string) (http.File, error) {
+	f, err := nfs.fs.Open(path)
+	if err != nil {
+		return nil, err
+	}
+	s, err := f.Stat()
+	if s.IsDir() {
+		index := filepath.Join(path, "index.html")
+		if _, err := nfs.fs.Open(index); err != nil {
+			closeErr := f.Close()
+			if closeErr != nil {
+				return nil, closeErr
+			}
+			return nil, err
+		}
+	}
+	return f, nil
 }

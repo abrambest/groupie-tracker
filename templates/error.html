@@ -1,11 +1,13 @@
 {{template "base" .}}
+{{define "title"}}GTrack - ERROR{{end}}
 {{define "main"}}
 
-<h2 class="error"> ERROR
+<div class="errorp"> ERROR
     <br>
-    <p>{{.Error}}</p>
-    <p>{{.Code}}</p>
+    {{.Code}}
+    {{.Error}}
+    <br>
     <a href="/">go to main page</a>
     
-</h2>
+</div>
 {{end}}

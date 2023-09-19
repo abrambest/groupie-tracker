@@ -122,6 +122,14 @@ img {
     text-transform: capitalize;
 }
 
+.errorp{
+    text-align: center;
+    margin: 40px auto;
+    color: white;
+    font-size: 15px;
+
+}
+
 footer{
     color: white;
     text-align: center;
@@ -129,4 +137,25 @@ footer{
     font-size: 12px;
     padding: 20px;
     margin-top: auto;
+}
+
+@media (max-width: 700px) {
+    .card{
+        width: 300px;
+
+    }
+    .first_line{
+        display: block;
+    }
+    .artist_img{
+        margin: 0 auto;
+    }
+    .info{
+        width: auto;
+        margin: 30px auto;
+    }
+    .footer{
+        width: auto;
+    }
+
 }
